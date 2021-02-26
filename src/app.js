@@ -109,7 +109,7 @@ const forecast = require('./utils/forecast');
 const bodyParser = require('body-parser');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }));
 // Define paths for Express config
@@ -202,6 +202,6 @@ app.get('*', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000.');
+app.listen(port, () => {
+  console.log('Server is up on port ' + port);
 });
